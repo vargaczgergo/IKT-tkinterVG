@@ -4,6 +4,7 @@ from tkinter import*
 foablak = Tk()
 
 
+
 foablak.geometry('550x550')
 foablak.title('hordó')
 vaszon=Canvas(foablak, width=160, height=160, bg='white')
