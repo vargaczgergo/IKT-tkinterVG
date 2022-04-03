@@ -1,43 +1,87 @@
 from tkinter import*
 import math
 
-foablak = Tk()
 
-def szamitas():
-    r = int(sugarb.get())
+def szamitas ():
+    if len(sugarg.get()) == 0 or len(magasg.get()) == 0 or len(mennyib.get()) == 0 or type(sugarg.get()) != int or type(magasg()) != int or type(mennyib.get()) != int:
+        beleg.delete (0, END)
+        beleg.insert (0, 'Nem fér bele a bor' )
+        telitettg.delete (0,END)
+        telitettg.insert (0, 'Nem fér bele a bor' )
+        terfogatb.delete (0,END)
+        terfogatb.insert (0, 'Nem fér bele a bor' )
+
+    r = int(sugarg.get())
     m = int(magasg.get())
-    mennyiseg = math.pi * r * r * m
-    mennyib.delete(0, END)
-    mennyib.insert(0, str(terfogat)+ 'cm³')
+    borl = int(mennyib.get())
+    meg = 0
+    telitet = 0
 
-    sugar = round (7.874 * terfogat, 2)
-    sugarg.delete (0, END)
-    sugarg.insert (0, str(vassuruseg))
+    if borl <= 0 or r <= 0 or m <= 0:
+        beleg.delete (0, END)
+        beleg.insert (0, 'Nem szükséges kiszámítani' )
+        telitettg.delete (0,END)
+        telitettg.insert (0, 'Nem szükséges kiszámítani' )
+        terfogatb.delete (0,END)
+        terfogatb.insert (0, 'Nem szükséges kiszámítani' )
+    else:
 
-    magassag = round (0.65 * terfogat, 2)
-    magasg.delete (0, END)
-    magasg.insert (0, str(fasuruseg))
-    
-foablak.geometry('550x550')
-kep = PhotoImage(file = 'C:\\Users\\vargaczgergo\\Desktop\\IKT-tkinterVG\\boroshordo.gif')
-foablak.iconphoto(True, kep)
+        terfogat = round (math.pi * r * r * m * 0.001)
+        terfogatb.delete (0, END)
+        terfogatb.insert (0, str(terfogat)+' l' )
 
-mennyiseg = Label(foablak, text= 'Bor mennyisége:')
+        meg = terfogat - borl
+        telitet = round (borl * (100 / terfogat))
+
+        if borl > terfogat:
+            beleg.delete (0, END)
+            beleg.insert (0, 'Túl kicsi a hordó.' )
+            telitettg.delete (0,END)
+            telitettg.insert (0, 'Túl kicsi a hordó.' )
+        else:
+            beleg.delete (0, END)
+            beleg.insert (0, str(meg)+' l')
+            telitettg.delete (0, END)
+            telitettg.insert (0, str(telitet)+' %')
+
+foablak = Tk()
+gyoker = 'C:\\Users\\Gergő\\Desktop\\IKT-tkinterVG\\folyadekVG.py'
+
+img = PhotoImage(file= gyoker + "boroshordo.gif")
+foablak.iconphoto(True, img)
+
+mennyiseg = Label(foablak, text= 'Bor mennyisége(l):')
 mennyiseg.grid(column = 1, row = 1)
 mennyib = Entry(foablak)
 mennyib.grid(column = 2, row = 1, columnspan = 2)
 
-sugar= Label(foablak, text= 'Hordó sugara:')
+sugar= Label(foablak, text= 'Hordó sugár(r):')
 sugar.grid(column = 1, row = 2)
 sugarg = Entry(foablak)
 sugarg.grid(column = 2, row = 2, columnspan = 2)
 
-magassag = Label(foablak, text= 'Hordó magassága:')
+magassag = Label(foablak, text= 'Hordó magasság(dm):')
 magassag.grid(column = 1, row = 3)
 magasg = Entry(foablak)
 magasg.grid(column = 2, row = 3, columnspan = 2)
 
-gomb1 = Button(foablak, text = 'kiszámítás')
+
+terfogat = Label(foablak, text= 'Ennyi a hordó kapacitása(l): ')
+terfogat.grid(column = 1, row = 5)
+terfogatb = Entry(foablak)
+terfogatb.grid(column = 2, row = 5, columnspan = 2)
+
+bele= Label(foablak, text= 'Ennyi fér még bele(l):')
+bele.grid(column = 1, row = 6)
+beleg = Entry(foablak)
+beleg.grid(column = 2, row = 6, columnspan = 2)
+
+telitett = Label(foablak, text= 'Ennyi százalékig van a hordó:')
+telitett.grid(column = 1, row = 7)
+telitettg = Entry(foablak)
+telitettg.grid(column = 2, row = 7, columnspan = 2)
+
+gomb1 = Button(foablak, text = 'Számítás', command = szamitas)
 gomb1.grid(column = 3, row = 4)
 
 
