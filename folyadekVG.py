@@ -35,9 +35,9 @@ def szamitas ():
 
         if borl > terfogat:
             beleg.delete (0, END)
-            beleg.insert (0, 'Túl kicsi a hordó.' )
+            beleg.insert (0, 'kicsi a hordó.' )
             telitettg.delete (0,END)
-            telitettg.insert (0, 'Túl kicsi a hordó.' )
+            telitettg.insert (0, ' kicsi a hordó.' )
         else:
             beleg.delete (0, END)
             beleg.insert (0, str(meg)+' l')
@@ -45,7 +45,7 @@ def szamitas ():
             telitettg.insert (0, str(telitet)+' %')
 
 foablak = Tk()
-gyoker = 'C:\\Users\\vargaczgergo\\Desktop\IKTVG\\IKT-tkinterVG\\'
+gyoker = 'C:\\Users\\vargaczgergo\\Desktop\\IKTVG\\IKT-tkinterVG\\'
 
 img = PhotoImage(file= gyoker + "boroshordo.gif")
 foablak.iconphoto(True, img)
