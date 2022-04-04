@@ -45,7 +45,7 @@ def szamitas ():
             telitettg.insert (0, str(telitet)+' %')
 
 foablak = Tk()
-gyoker = 'C:\\Users\\Gergő\\Desktop\\IKT-tkinterVG\\folyadekVG.py'
+gyoker = 'C:\\Users\\vargaczgergo\\Desktop\IKTVG\\IKT-tkinterVG\\'
 
 img = PhotoImage(file= gyoker + "boroshordo.gif")
 foablak.iconphoto(True, img)
