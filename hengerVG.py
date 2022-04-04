@@ -1,8 +1,7 @@
 from tkinter import*
 import math
 
-gyoker = 'C:\\Users\\Gergő\\Desktop\\henger\\'
-
+gyoker = 'C:\\Users\\vargaczgergo\\Desktop\\IKTVG\\IKT-tkinterVG\\'
 
 
 def szamitas():
@@ -52,6 +51,6 @@ fahenger.grid(column = 1, row = 6)
 fahengb = Entry(foablak)
 fahengb.grid(column = 2, row = 6, columnspan = 2)
 
-photo = PhotoImage(file = gyoker + 'cat.gif')
+photo = PhotoImage(file = gyoker + 'boroshordo.gif')
 foablak.iconphoto(True, photo) 
 foablak.mainloop()
